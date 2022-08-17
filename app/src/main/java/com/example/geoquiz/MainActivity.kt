@@ -7,6 +7,8 @@ import android.widget.Button
 import android.widget.Toast
 
 // Delete later, added for git commit
+// Delete later, added for git commit
+// Delete later, added for git commit
 
 class MainActivity : AppCompatActivity() {
     private lateinit var trueButton: Button
