@@ -13,7 +13,7 @@ import com.example.geoquiz.databinding.ActivityMainBinding
 private const val TAG = "MainActivity"
 
 class MainActivity : AppCompatActivity() {
-    // page 79
+    // page 79  - didn't commit/push making change delete later <<<<
 
     private lateinit var binding: ActivityMainBinding
 
