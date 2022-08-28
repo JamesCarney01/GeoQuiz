@@ -1,10 +1,13 @@
 package com.example.geoquiz
 
+import android.widget.Toast
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
+import kotlin.math.log
 
-private const val TAG = "QuizViewModel"
+private const val TAG = "QuizViewModel" // saved for log cat (debug)
 const val CURRENT_INDEX_KEY = "CURRENT_INDEX_KEY"
+const val IS_CHEATER_KEY = "IS_CHEATER_KEY"
 
 class QuizViewModel (private val savedStateHandle: SavedStateHandle): ViewModel() {
 
@@ -17,6 +20,11 @@ class QuizViewModel (private val savedStateHandle: SavedStateHandle): ViewModel(
         Question(R.string.question_americas, true),
         Question(R.string.question_asia, true)
     )
+
+    var isCheater: Boolean
+        get() = savedStateHandle.get(IS_CHEATER_KEY) ?: false
+        set(value) = savedStateHandle.set(IS_CHEATER_KEY, value)
+
     private var currentIndex: Int
         get() = savedStateHandle.get(CURRENT_INDEX_KEY) ?: 0
     set(value) = savedStateHandle.set(CURRENT_INDEX_KEY, value)
@@ -29,5 +37,15 @@ class QuizViewModel (private val savedStateHandle: SavedStateHandle): ViewModel(
 
     fun moveToNext() {
         currentIndex = (currentIndex + 1) % questionBank.size
+    }
+    fun moveToPrevious() {
+        currentIndex = (currentIndex - 1) % questionBank.size
+//        val messageResId = if (currentIndex == 0) {
+//            R.string.error_toast
+//        } else {
+//            currentIndex = (currentIndex - 1) % questionBank.size
+//        }
+//        Toast.makeText(this, messageResId, Toast.LENGTH_SHORT)
+//            .show()
     }
 }
