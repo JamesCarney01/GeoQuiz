@@ -6,3 +6,5 @@ Mandatory fix:
 Not mandatory:
 *   Correct solution of previous button at currentIndex -1, needs fix
 *   Cheating remembered for each question (wrong)
+
+Fixed:
