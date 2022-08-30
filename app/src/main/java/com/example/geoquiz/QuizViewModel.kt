@@ -7,7 +7,7 @@ import kotlin.math.log
 
 private const val TAG = "QuizViewModel" // saved for log cat (debug)
 const val CURRENT_INDEX_KEY = "CURRENT_INDEX_KEY"
-const val IS_CHEATER_KEY = "IS_CHEATER_KEY"
+
 
 class QuizViewModel (private val savedStateHandle: SavedStateHandle): ViewModel() {
 
@@ -20,10 +20,6 @@ class QuizViewModel (private val savedStateHandle: SavedStateHandle): ViewModel(
         Question(R.string.question_americas, true),
         Question(R.string.question_asia, true)
     )
-
-    var isCheater: Boolean
-        get() = savedStateHandle.get(IS_CHEATER_KEY) ?: false
-        set(value) = savedStateHandle.set(IS_CHEATER_KEY, value)
 
     private var currentIndex: Int
         get() = savedStateHandle.get(CURRENT_INDEX_KEY) ?: 0
